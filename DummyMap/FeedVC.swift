@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Alamofire
+import PKHUD
+import Cosmos
 
 class FeedVC: UIViewController {
 

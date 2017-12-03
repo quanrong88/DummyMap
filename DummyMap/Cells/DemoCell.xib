@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="DemoCell" customModule="FlexibleCollectionLandscape" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="DemoCell" customModule="DummyMap" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -27,6 +27,7 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test shop title longgggggg gooo gooo" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9lv-Sv-DQu">
                         <rect key="frame" x="58" y="57" width="188" height="36"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -49,25 +50,57 @@
                             <action selector="moreInfoBtnClicked:" destination="gTV-IL-0wX" eventType="touchUpInside" id="CtJ-Qd-ddm"/>
                         </connections>
                     </button>
+                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HnY-HB-nfh" customClass="CosmosView" customModule="Cosmos">
+                        <rect key="frame" x="58" y="124" width="120" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="120" id="5fx-1S-Dyn"/>
+                            <constraint firstAttribute="height" constant="20" id="78y-VI-80g"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nqR-bP-AiJ"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="fillMode">
+                                <integer key="value" value="2"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
+                                <color key="value" red="0.77647058820000003" green="0.80000000000000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="emptyBorderColor">
+                                <color key="value" red="0.77647058820000003" green="0.80000000000000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="filledBorderColor">
+                                <color key="value" red="0.77647058820000003" green="0.80000000000000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="minTouchRating">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                 </subviews>
             </view>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="deX-ii-BJq" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="1pA-te-6K8"/>
-                <constraint firstItem="9lv-Sv-DQu" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="Bjp-Qg-LDY"/>
-                <constraint firstItem="9lv-Sv-DQu" firstAttribute="top" relation="greaterThanOrEqual" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="IaC-rK-nOl"/>
+                <constraint firstItem="9lv-Sv-DQu" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" priority="250" id="Bjp-Qg-LDY"/>
+                <constraint firstItem="9lv-Sv-DQu" firstAttribute="top" relation="greaterThanOrEqual" secondItem="gTV-IL-0wX" secondAttribute="top" id="IaC-rK-nOl"/>
                 <constraint firstAttribute="trailing" secondItem="deX-ii-BJq" secondAttribute="trailing" constant="20" id="OT9-TN-zW7"/>
-                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="9lv-Sv-DQu" secondAttribute="bottom" constant="10" id="Pck-Qn-Dvb"/>
                 <constraint firstItem="9lv-Sv-DQu" firstAttribute="leading" secondItem="OQq-JU-kH8" secondAttribute="trailing" constant="8" id="V4E-R6-bQd"/>
                 <constraint firstAttribute="trailing" secondItem="JJs-2O-NaL" secondAttribute="trailing" id="VJe-Ze-sKs"/>
+                <constraint firstItem="HnY-HB-nfh" firstAttribute="leading" secondItem="9lv-Sv-DQu" secondAttribute="leading" id="ZFO-q2-kbB"/>
+                <constraint firstItem="HnY-HB-nfh" firstAttribute="top" relation="greaterThanOrEqual" secondItem="9lv-Sv-DQu" secondAttribute="bottom" id="ZWS-4C-2sU"/>
                 <constraint firstItem="OQq-JU-kH8" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="fCb-42-kEn"/>
                 <constraint firstItem="deX-ii-BJq" firstAttribute="leading" secondItem="9lv-Sv-DQu" secondAttribute="trailing" constant="10" id="gNm-gc-jQV"/>
+                <constraint firstItem="JJs-2O-NaL" firstAttribute="top" secondItem="HnY-HB-nfh" secondAttribute="bottom" constant="5" id="hdY-RJ-a8q"/>
                 <constraint firstItem="OQq-JU-kH8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="mHf-0I-dL1"/>
                 <constraint firstItem="JJs-2O-NaL" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="opq-AE-XdR"/>
                 <constraint firstAttribute="bottom" secondItem="JJs-2O-NaL" secondAttribute="bottom" id="vnf-qL-5Ee"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="162" height="119"/>
+            <connections>
+                <outlet property="rateView" destination="HnY-HB-nfh" id="WrC-Gc-UUf"/>
+                <outlet property="titleLbl" destination="9lv-Sv-DQu" id="3yf-Kv-o84"/>
+                <outlet property="typeIcon" destination="OQq-JU-kH8" id="XV6-h4-djg"/>
+            </connections>
             <point key="canvasLocation" x="90" y="88"/>
         </collectionViewCell>
     </objects>

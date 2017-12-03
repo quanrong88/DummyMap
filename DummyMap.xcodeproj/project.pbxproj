@@ -13,6 +13,9 @@
 		FC17B5AB1FD2941600CBF144 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC17B5AA1FD2941600CBF144 /* Assets.xcassets */; };
 		FC17B5AE1FD2941600CBF144 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC17B5AC1FD2941600CBF144 /* LaunchScreen.storyboard */; };
 		FC17B5B61FD2E9E500CBF144 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC17B5B51FD2E9E500CBF144 /* FeedVC.swift */; };
+		FC958B221FD4137B009C4048 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC958B1F1FD4137B009C4048 /* Alamofire.framework */; };
+		FC958B231FD4137B009C4048 /* Cosmos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC958B201FD4137B009C4048 /* Cosmos.framework */; };
+		FC958B241FD4137B009C4048 /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC958B211FD4137B009C4048 /* PKHUD.framework */; };
 		FCCB75EB1FD3B1270078DE20 /* DemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCB75E91FD3B06F0078DE20 /* DemoCell.swift */; };
 		FCCB75EC1FD3B1310078DE20 /* DemoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCCB75EA1FD3B06F0078DE20 /* DemoCell.xib */; };
 /* End PBXBuildFile section */
@@ -26,6 +29,9 @@
 		FC17B5AD1FD2941600CBF144 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC17B5AF1FD2941600CBF144 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC17B5B51FD2E9E500CBF144 /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
+		FC958B1F1FD4137B009C4048 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		FC958B201FD4137B009C4048 /* Cosmos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cosmos.framework; path = Carthage/Build/iOS/Cosmos.framework; sourceTree = "<group>"; };
+		FC958B211FD4137B009C4048 /* PKHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PKHUD.framework; path = Carthage/Build/iOS/PKHUD.framework; sourceTree = "<group>"; };
 		FCCB75E91FD3B06F0078DE20 /* DemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoCell.swift; sourceTree = "<group>"; };
 		FCCB75EA1FD3B06F0078DE20 /* DemoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DemoCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -35,6 +41,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC958B221FD4137B009C4048 /* Alamofire.framework in Frameworks */,
+				FC958B231FD4137B009C4048 /* Cosmos.framework in Frameworks */,
+				FC958B241FD4137B009C4048 /* PKHUD.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +55,7 @@
 			children = (
 				FC17B59F1FD2941600CBF144 /* DummyMap */,
 				FC17B59E1FD2941600CBF144 /* Products */,
+				FC958B1E1FD4137A009C4048 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +82,16 @@
 			path = DummyMap;
 			sourceTree = "<group>";
 		};
+		FC958B1E1FD4137A009C4048 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FC958B1F1FD4137B009C4048 /* Alamofire.framework */,
+				FC958B201FD4137B009C4048 /* Cosmos.framework */,
+				FC958B211FD4137B009C4048 /* PKHUD.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FCCB75E81FD3B0470078DE20 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +111,7 @@
 				FC17B5991FD2941600CBF144 /* Sources */,
 				FC17B59A1FD2941600CBF144 /* Frameworks */,
 				FC17B59B1FD2941600CBF144 /* Resources */,
+				FC958B251FD413AB009C4048 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -148,6 +169,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		FC958B251FD413AB009C4048 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Cosmos.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/PKHUD.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FC17B5991FD2941600CBF144 /* Sources */ = {
@@ -296,6 +336,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = DummyMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = quan.DummyMap;
@@ -312,6 +356,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = DummyMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = quan.DummyMap;

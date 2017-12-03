@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import Cosmos
 
 class DemoCell: UICollectionViewCell {
     
+    @IBOutlet weak var typeIcon: UIImageView!
+    @IBOutlet weak var titleLbl: UILabel!
+    @IBOutlet weak var rateView: CosmosView!
     static var identifier: String {
         return String(describing: self)
     }
