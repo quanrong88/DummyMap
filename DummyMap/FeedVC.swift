@@ -14,7 +14,7 @@ class FeedVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        feedCollectionView.register(DemoCell.nib, forCellWithReuseIdentifier: DemoCell.identifier)
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,6 +22,10 @@ class FeedVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        feedCollectionView.collectionViewLayout.invalidateLayout()
+    }
 
     /*
     // MARK: - Navigation
@@ -33,4 +37,33 @@ class FeedVC: UIViewController {
     }
     */
 
+}
+extension FeedVC: UICollectionViewDelegate {
+    
+}
+
+extension FeedVC: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 100
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DemoCell.identifier, for: indexPath)
+        
+        return cell
+    }
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+}
+
+extension FeedVC: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        switch UIDevice.current.orientation {
+        case .landscapeLeft, .landscapeRight:
+            return CGSize(width: collectionView.bounds.size.width / 3 , height: 150)
+        default:
+            return CGSize(width: collectionView.bounds.size.width, height: 60)
+        }
+    }
+    
 }

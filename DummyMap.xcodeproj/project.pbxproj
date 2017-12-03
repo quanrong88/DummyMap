@@ -13,6 +13,8 @@
 		FC17B5AB1FD2941600CBF144 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC17B5AA1FD2941600CBF144 /* Assets.xcassets */; };
 		FC17B5AE1FD2941600CBF144 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC17B5AC1FD2941600CBF144 /* LaunchScreen.storyboard */; };
 		FC17B5B61FD2E9E500CBF144 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC17B5B51FD2E9E500CBF144 /* FeedVC.swift */; };
+		FCCB75EB1FD3B1270078DE20 /* DemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCB75E91FD3B06F0078DE20 /* DemoCell.swift */; };
+		FCCB75EC1FD3B1310078DE20 /* DemoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCCB75EA1FD3B06F0078DE20 /* DemoCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		FC17B5AD1FD2941600CBF144 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC17B5AF1FD2941600CBF144 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC17B5B51FD2E9E500CBF144 /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
+		FCCB75E91FD3B06F0078DE20 /* DemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoCell.swift; sourceTree = "<group>"; };
+		FCCB75EA1FD3B06F0078DE20 /* DemoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DemoCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 		FC17B59F1FD2941600CBF144 /* DummyMap */ = {
 			isa = PBXGroup;
 			children = (
+				FCCB75E81FD3B0470078DE20 /* Cells */,
 				FC17B5A01FD2941600CBF144 /* AppDelegate.swift */,
 				FC17B5A41FD2941600CBF144 /* Main.storyboard */,
 				FC17B5AA1FD2941600CBF144 /* Assets.xcassets */,
@@ -65,6 +70,15 @@
 				FC17B5B51FD2E9E500CBF144 /* FeedVC.swift */,
 			);
 			path = DummyMap;
+			sourceTree = "<group>";
+		};
+		FCCB75E81FD3B0470078DE20 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FCCB75E91FD3B06F0078DE20 /* DemoCell.swift */,
+				FCCB75EA1FD3B06F0078DE20 /* DemoCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +140,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCCB75EC1FD3B1310078DE20 /* DemoCell.xib in Resources */,
 				FC17B5AE1FD2941600CBF144 /* LaunchScreen.storyboard in Resources */,
 				FC17B5AB1FD2941600CBF144 /* Assets.xcassets in Resources */,
 				FC17B5A61FD2941600CBF144 /* Main.storyboard in Resources */,
@@ -139,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCCB75EB1FD3B1270078DE20 /* DemoCell.swift in Sources */,
 				FC17B5B61FD2E9E500CBF144 /* FeedVC.swift in Sources */,
 				FC17B5A91FD2941600CBF144 /* DummyMap.xcdatamodeld in Sources */,
 				FC17B5A11FD2941600CBF144 /* AppDelegate.swift in Sources */,
