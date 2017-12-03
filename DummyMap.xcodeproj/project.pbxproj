@@ -8,22 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		FC17B5A11FD2941600CBF144 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC17B5A01FD2941600CBF144 /* AppDelegate.swift */; };
-		FC17B5A31FD2941600CBF144 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC17B5A21FD2941600CBF144 /* ViewController.swift */; };
 		FC17B5A61FD2941600CBF144 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC17B5A41FD2941600CBF144 /* Main.storyboard */; };
 		FC17B5A91FD2941600CBF144 /* DummyMap.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC17B5A71FD2941600CBF144 /* DummyMap.xcdatamodeld */; };
 		FC17B5AB1FD2941600CBF144 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC17B5AA1FD2941600CBF144 /* Assets.xcassets */; };
 		FC17B5AE1FD2941600CBF144 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC17B5AC1FD2941600CBF144 /* LaunchScreen.storyboard */; };
+		FC17B5B61FD2E9E500CBF144 /* FeedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC17B5B51FD2E9E500CBF144 /* FeedVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FC17B59D1FD2941600CBF144 /* DummyMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DummyMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC17B5A01FD2941600CBF144 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FC17B5A21FD2941600CBF144 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FC17B5A51FD2941600CBF144 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FC17B5A81FD2941600CBF144 /* DummyMap.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DummyMap.xcdatamodel; sourceTree = "<group>"; };
 		FC17B5AA1FD2941600CBF144 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC17B5AD1FD2941600CBF144 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC17B5AF1FD2941600CBF144 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC17B5B51FD2E9E500CBF144 /* FeedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,12 +57,12 @@
 			isa = PBXGroup;
 			children = (
 				FC17B5A01FD2941600CBF144 /* AppDelegate.swift */,
-				FC17B5A21FD2941600CBF144 /* ViewController.swift */,
 				FC17B5A41FD2941600CBF144 /* Main.storyboard */,
 				FC17B5AA1FD2941600CBF144 /* Assets.xcassets */,
 				FC17B5AC1FD2941600CBF144 /* LaunchScreen.storyboard */,
 				FC17B5AF1FD2941600CBF144 /* Info.plist */,
 				FC17B5A71FD2941600CBF144 /* DummyMap.xcdatamodeld */,
+				FC17B5B51FD2E9E500CBF144 /* FeedVC.swift */,
 			);
 			path = DummyMap;
 			sourceTree = "<group>";
@@ -99,7 +99,7 @@
 				TargetAttributes = {
 					FC17B59C1FD2941600CBF144 = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -139,8 +139,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC17B5B61FD2E9E500CBF144 /* FeedVC.swift in Sources */,
 				FC17B5A91FD2941600CBF144 /* DummyMap.xcdatamodeld in Sources */,
-				FC17B5A31FD2941600CBF144 /* ViewController.swift in Sources */,
 				FC17B5A11FD2941600CBF144 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,11 +278,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = DummyMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = quan.DummyMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -292,11 +294,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = DummyMap/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = quan.DummyMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
