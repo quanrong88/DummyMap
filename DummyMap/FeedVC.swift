@@ -19,12 +19,18 @@ class FeedVC: UIViewController {
     @IBOutlet weak var feedCollectionView: UICollectionView!
     var managedContext: NSManagedObjectContext!
     var feedData: [Restaurant] = []
+    let previouslyLaunched = UserDefaults.standard.bool(forKey: "previouslyLaunched")
     override func viewDidLoad() {
         super.viewDidLoad()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         managedContext = appDelegate.coreDataStack.managedContext
         feedCollectionView.register(DemoCell.nib, forCellWithReuseIdentifier: DemoCell.identifier)
-        getRestaurantList()
+        if !previouslyLaunched {
+            getRestaurantList()
+        } else {
+            fetchRestaurantList()
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,7 +60,9 @@ class FeedVC: UIViewController {
                 print("Validation Successful")
                 if let json = response.result.value as? [[String:Any]] {
                     self.parseJsonData(input: json)
+                    UserDefaults.standard.set(true, forKey: "previouslyLaunched")
                 }
+                
             case .failure(let error):
                 print(error)
             }
