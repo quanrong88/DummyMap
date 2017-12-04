@@ -29,5 +29,23 @@ class DemoCell: UICollectionViewCell {
     @IBAction func moreInfoBtnClicked(_ sender: UIButton) {
         print("Show more info")
     }
-    
+    func setTypeIcon(type: String) {
+        switch type {
+        case "hawk":
+            typeIcon.image = #imageLiteral(resourceName: "bakery")
+            break
+        case "coffee":
+            typeIcon.image = #imageLiteral(resourceName: "coffee")
+            break
+        case "fastfood":
+            typeIcon.image = #imageLiteral(resourceName: "fastfood")
+            break
+        case "streettea":
+            typeIcon.image = #imageLiteral(resourceName: "water")
+            break
+        default:
+            typeIcon.image = #imageLiteral(resourceName: "food-icon")
+            break
+        }
+    }
 }

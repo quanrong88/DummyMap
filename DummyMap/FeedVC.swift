@@ -84,6 +84,7 @@ class FeedVC: UIViewController {
         restaurant.id = dict["id"] as? String
         restaurant.name = dict["name"] as? String
         restaurant.bio = dict["bio"] as? String
+        restaurant.type = dict["type"] as? String
         restaurant.rate = dict["rate"] as? Double ?? 0
         restaurant.latitude = dict["latitude"] as? Double ?? 0
         restaurant.longitude = dict["longitude"] as? Double ?? 0
@@ -113,6 +114,9 @@ extension FeedVC: UICollectionViewDataSource {
         let restaurant = feedData[indexPath.row]
         cell.titleLbl.text = restaurant.name
         cell.rateView.rating = restaurant.rate
+        if let type = restaurant.type {
+            cell.setTypeIcon(type: type)
+        }
         return cell
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
