@@ -43,15 +43,16 @@ class FeedVC: UIViewController {
         feedCollectionView.collectionViewLayout.invalidateLayout()
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showDetail", let desVC = segue.destination as? RestaurantDetailVC, let content = sender as? Restaurant {
+            desVC.restaurant = content
+        }
     }
-    */
+    
     // MARK: Ultilities function
     func getRestaurantList() {
         Alamofire.request(mainURL).responseJSON { [unowned self] response in
@@ -102,7 +103,10 @@ class FeedVC: UIViewController {
 
 }
 extension FeedVC: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let restaurant = feedData[indexPath.row]
+        performSegue(withIdentifier: "showDetail", sender: restaurant)
+    }
 }
 
 extension FeedVC: UICollectionViewDataSource {
