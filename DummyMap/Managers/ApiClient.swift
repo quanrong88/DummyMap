@@ -14,7 +14,7 @@ let mainURL = "https://my-json-server.typicode.com/quanrong88/Demo-repo/shops"
 class ApiClient: NSObject {
     static let sharedInstance = ApiClient()
     func getRestaurantList(completion: @escaping ([Restaurant]) -> Void) {
-        Alamofire.request(mainURL).responseJSON { [unowned self] response in
+        Alamofire.request(mainURL).responseJSON { response in
             switch response.result {
             case .success:
                 print("Validation Successful")
