@@ -12,23 +12,26 @@ import PKHUD
 import Cosmos
 import CoreData
 
-let mainURL = "https://my-json-server.typicode.com/quanrong88/Demo-repo/shops"
-
 class FeedVC: UIViewController {
 
     @IBOutlet weak var feedCollectionView: UICollectionView!
-    var managedContext: NSManagedObjectContext!
+    
     var feedData: [Restaurant] = []
     let previouslyLaunched = UserDefaults.standard.bool(forKey: "previouslyLaunched")
     override func viewDidLoad() {
         super.viewDidLoad()
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        managedContext = appDelegate.coreDataStack.managedContext
+        
         feedCollectionView.register(DemoCell.nib, forCellWithReuseIdentifier: DemoCell.identifier)
         if !previouslyLaunched {
-            getRestaurantList()
+            ApiClient.sharedInstance.getRestaurantList(completion: { [unowned self] (restaurant) in
+                self.feedData = restaurant
+                self.feedCollectionView.reloadData()
+            })
         } else {
-            fetchRestaurantList()
+            PersistenceManager.sharedInstance.fetchRestaurantList(completion: { [unowned self] (restaurant) in
+                self.feedData = restaurant
+                self.feedCollectionView.reloadData()
+            })
         }
         
     }
@@ -48,53 +51,7 @@ class FeedVC: UIViewController {
         }
     }
     
-    // MARK: Ultilities function
-    func getRestaurantList() {
-        Alamofire.request(mainURL).responseJSON { [unowned self] response in
-            switch response.result {
-            case .success:
-                print("Validation Successful")
-                if let json = response.result.value as? [[String:Any]] {
-                    self.parseJsonData(input: json)
-                    UserDefaults.standard.set(true, forKey: "previouslyLaunched")
-                }
-                
-            case .failure(let error):
-                print(error)
-            }
-            
-            
-        }
-    }
-    func parseJsonData(input: [[String:Any]]) {
-        for dict in input {
-            insertNewShopEntity(dict: dict)
-        }
-        try! managedContext.save()
-        fetchRestaurantList()
-    }
-    func insertNewShopEntity(dict: [String:Any]) {
-        guard let entity = NSEntityDescription.entity(forEntityName: "Restaurant",
-                                                      in: managedContext) else { return }
-        let restaurant = Restaurant(entity: entity, insertInto: managedContext)
-        restaurant.id = dict["id"] as? String
-        restaurant.name = dict["name"] as? String
-        restaurant.bio = dict["bio"] as? String
-        restaurant.type = dict["type"] as? String
-        restaurant.rate = dict["rate"] as? Double ?? 0
-        restaurant.latitude = dict["latitude"] as? Double ?? 0
-        restaurant.longitude = dict["longitude"] as? Double ?? 0
-    }
-    func fetchRestaurantList() {
-        let request = NSFetchRequest<Restaurant>(entityName: "Restaurant")
-        do {
-            let results = try managedContext.fetch(request)
-            feedData = results
-            feedCollectionView.reloadData()
-        } catch let error as NSError {
-            print("Could not fetch \(error), \(error.userInfo)")
-        }
-    }
+    
 
 }
 extension FeedVC: UICollectionViewDelegate {
