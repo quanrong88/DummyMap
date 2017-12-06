@@ -11,6 +11,9 @@
 		3D225FA51FD505DA00DE775F /* Restaurant+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D225FA31FD505DA00DE775F /* Restaurant+CoreDataProperties.swift */; };
 		3D225FA81FD5069F00DE775F /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D225FA71FD5069E00DE775F /* CoreDataStack.swift */; };
 		3D225FAA1FD5474200DE775F /* RestaurantDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D225FA91FD5474200DE775F /* RestaurantDetailVC.swift */; };
+		3D57D89F1FD790C600141311 /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D57D89E1FD790C600141311 /* MapAnnotation.swift */; };
+		3D57D8A11FD793BD00141311 /* MapMakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D57D8A01FD793BD00141311 /* MapMakerView.swift */; };
+		3DF1BC8E1FD7883B005025AC /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF1BC8D1FD7883B005025AC /* MapVC.swift */; };
 		FC17B5A11FD2941600CBF144 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC17B5A01FD2941600CBF144 /* AppDelegate.swift */; };
 		FC17B5A61FD2941600CBF144 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC17B5A41FD2941600CBF144 /* Main.storyboard */; };
 		FC17B5A91FD2941600CBF144 /* DummyMap.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC17B5A71FD2941600CBF144 /* DummyMap.xcdatamodeld */; };
@@ -29,6 +32,9 @@
 		3D225FA31FD505DA00DE775F /* Restaurant+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restaurant+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3D225FA71FD5069E00DE775F /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		3D225FA91FD5474200DE775F /* RestaurantDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailVC.swift; sourceTree = "<group>"; };
+		3D57D89E1FD790C600141311 /* MapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotation.swift; sourceTree = "<group>"; };
+		3D57D8A01FD793BD00141311 /* MapMakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMakerView.swift; sourceTree = "<group>"; };
+		3DF1BC8D1FD7883B005025AC /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		FC17B59D1FD2941600CBF144 /* DummyMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DummyMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC17B5A01FD2941600CBF144 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FC17B5A51FD2941600CBF144 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,6 +74,14 @@
 			path = CoreDataClasses;
 			sourceTree = "<group>";
 		};
+		3D57D89D1FD78FDA00141311 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3D57D89E1FD790C600141311 /* MapAnnotation.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		FC17B5941FD2941600CBF144 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +102,7 @@
 		FC17B59F1FD2941600CBF144 /* DummyMap */ = {
 			isa = PBXGroup;
 			children = (
+				3D57D89D1FD78FDA00141311 /* Models */,
 				3D225FA61FD5060000DE775F /* CoreDataClasses */,
 				FCCB75E81FD3B0470078DE20 /* Cells */,
 				FC17B5A01FD2941600CBF144 /* AppDelegate.swift */,
@@ -98,6 +113,7 @@
 				FC17B5A71FD2941600CBF144 /* DummyMap.xcdatamodeld */,
 				FC17B5B51FD2E9E500CBF144 /* FeedVC.swift */,
 				3D225FA91FD5474200DE775F /* RestaurantDetailVC.swift */,
+				3DF1BC8D1FD7883B005025AC /* MapVC.swift */,
 			);
 			path = DummyMap;
 			sourceTree = "<group>";
@@ -117,6 +133,7 @@
 			children = (
 				FCCB75E91FD3B06F0078DE20 /* DemoCell.swift */,
 				FCCB75EA1FD3B06F0078DE20 /* DemoCell.xib */,
+				3D57D8A01FD793BD00141311 /* MapMakerView.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -215,12 +232,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D225FAA1FD5474200DE775F /* RestaurantDetailVC.swift in Sources */,
+				3D57D89F1FD790C600141311 /* MapAnnotation.swift in Sources */,
+				3D57D8A11FD793BD00141311 /* MapMakerView.swift in Sources */,
 				3D225FA51FD505DA00DE775F /* Restaurant+CoreDataProperties.swift in Sources */,
 				FCCB75EB1FD3B1270078DE20 /* DemoCell.swift in Sources */,
 				3D225FA81FD5069F00DE775F /* CoreDataStack.swift in Sources */,
 				FC17B5B61FD2E9E500CBF144 /* FeedVC.swift in Sources */,
 				3D225FA41FD505DA00DE775F /* Restaurant+CoreDataClass.swift in Sources */,
 				FC17B5A91FD2941600CBF144 /* DummyMap.xcdatamodeld in Sources */,
+				3DF1BC8E1FD7883B005025AC /* MapVC.swift in Sources */,
 				FC17B5A11FD2941600CBF144 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
