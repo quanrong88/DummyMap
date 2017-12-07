@@ -16,7 +16,7 @@ class FeedVC: UIViewController {
 
     @IBOutlet weak var feedCollectionView: UICollectionView!
     
-    var feedData: [Restaurant] = []
+    var feedData: [RestaurantViewModel] = []
     let previouslyLaunched = UserDefaults.standard.bool(forKey: "previouslyLaunched")
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class FeedVC: UIViewController {
                 self.feedCollectionView.reloadData()
             })
         } else {
-            PersistenceManager.sharedInstance.fetchRestaurantList(completion: { [unowned self] (restaurant) in
+            PersistenceManager.sharedInstance.fetchRestaurantModelList(completion: { [unowned self] (restaurant) in
                 self.feedData = restaurant
                 self.feedCollectionView.reloadData()
             })
@@ -70,9 +70,7 @@ extension FeedVC: UICollectionViewDataSource {
         let restaurant = feedData[indexPath.row]
         cell.titleLbl.text = restaurant.name
         cell.rateView.rating = restaurant.rate
-        if let type = restaurant.type {
-            cell.setTypeIcon(type: type)
-        }
+        cell.setTypeIcon(type: restaurant.type)
         return cell
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {

@@ -15,7 +15,7 @@ class PersistenceManager: NSObject {
     
     static let sharedInstance = PersistenceManager()
     
-    func parseJsonData(input: [[String:Any]], completion: @escaping ([Restaurant]) -> Void) {
+    func parseJsonData(input: [[String:Any]]) {
         coreDataStack.storeContainer.performBackgroundTask { [unowned self] (context) in
             for dict in input {
                 self.insertNewShopEntity(dict: dict, context: context)
@@ -23,12 +23,10 @@ class PersistenceManager: NSObject {
             try! context.save()
             self.coreDataStack.saveContext()
             DispatchQueue.main.async {
-                self.fetchRestaurantList(completion: completion)
+                self.fetchRestaurantList(completion: { (_) in })
             }
             
         }
-        
-        
     }
     func insertNewShopEntity(dict: [String:Any], context: NSManagedObjectContext) {
         guard let entity = NSEntityDescription.entity(forEntityName: "Restaurant",
@@ -50,5 +48,15 @@ class PersistenceManager: NSObject {
         } catch let error as NSError {
             print("Could not fetch \(error), \(error.userInfo)")
         }
+    }
+    func fetchRestaurantModelList(completion: @escaping ([RestaurantViewModel]) -> Void) {
+        fetchRestaurantList(completion: { (restaurants ) in
+            var result: [RestaurantViewModel] = []
+            for item in restaurants {
+                let model = RestaurantViewModel(restaurant: item)
+                result.append(model)
+            }
+            completion(result)
+        })
     }
 }

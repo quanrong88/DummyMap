@@ -11,6 +11,7 @@
 		3D225FA51FD505DA00DE775F /* Restaurant+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D225FA31FD505DA00DE775F /* Restaurant+CoreDataProperties.swift */; };
 		3D225FA81FD5069F00DE775F /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D225FA71FD5069E00DE775F /* CoreDataStack.swift */; };
 		3D225FAA1FD5474200DE775F /* RestaurantDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D225FA91FD5474200DE775F /* RestaurantDetailVC.swift */; };
+		3D49580F1FD9173A00E20201 /* RestaurantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D49580E1FD9173A00E20201 /* RestaurantViewModel.swift */; };
 		3D57D89F1FD790C600141311 /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D57D89E1FD790C600141311 /* MapAnnotation.swift */; };
 		3D57D8A11FD793BD00141311 /* MapMakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D57D8A01FD793BD00141311 /* MapMakerView.swift */; };
 		3D57D8A41FD7D0D000141311 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D57D8A31FD7D0D000141311 /* PersistenceManager.swift */; };
@@ -34,6 +35,7 @@
 		3D225FA31FD505DA00DE775F /* Restaurant+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Restaurant+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3D225FA71FD5069E00DE775F /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		3D225FA91FD5474200DE775F /* RestaurantDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailVC.swift; sourceTree = "<group>"; };
+		3D49580E1FD9173A00E20201 /* RestaurantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewModel.swift; sourceTree = "<group>"; };
 		3D57D89E1FD790C600141311 /* MapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotation.swift; sourceTree = "<group>"; };
 		3D57D8A01FD793BD00141311 /* MapMakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMakerView.swift; sourceTree = "<group>"; };
 		3D57D8A31FD7D0D000141311 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				3D57D89E1FD790C600141311 /* MapAnnotation.swift */,
+				3D49580E1FD9173A00E20201 /* RestaurantViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				FC17B5A91FD2941600CBF144 /* DummyMap.xcdatamodeld in Sources */,
 				3DF1BC8E1FD7883B005025AC /* MapVC.swift in Sources */,
 				FC17B5A11FD2941600CBF144 /* AppDelegate.swift in Sources */,
+				3D49580F1FD9173A00E20201 /* RestaurantViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
