@@ -46,7 +46,7 @@ class FeedVC: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showDetail", let desVC = segue.destination as? RestaurantDetailVC, let content = sender as? Restaurant {
+        if segue.identifier == "showDetail", let desVC = segue.destination as? RestaurantDetailVC, let content = sender as? RestaurantViewModel {
             desVC.restaurant = content
         }
     }
