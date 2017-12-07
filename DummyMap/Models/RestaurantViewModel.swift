@@ -8,12 +8,12 @@
 
 import Foundation
 
-enum RestaurantType {
-    case hawk
-    case coffee
-    case fastfood
-    case streettea
-    case na
+enum RestaurantType: String {
+    case hawk = "hawk"
+    case coffee = "coffee"
+    case fastfood = "fastfood"
+    case streettea = "streettea"
+    case na = "N/a"
 }
 
 struct RestaurantViewModel {
@@ -26,22 +26,7 @@ struct RestaurantViewModel {
         name = restaurant.name ?? ""
         bio = restaurant.bio ?? ""
         if let restaurantType = restaurant.type {
-            switch restaurantType {
-            case "hawk":
-                type = .hawk
-                break
-            case "coffee":
-                type = .coffee
-                break
-            case "fastfood":
-                type = .fastfood
-                break
-            case "streettea":
-                type = .streettea
-                break
-            default:
-                type = .na
-            }
+            type = RestaurantType(rawValue: restaurantType) ?? .na
         } else { type = .na }
         rate = restaurant.rate
     }
@@ -50,22 +35,7 @@ struct RestaurantViewModel {
         name = dict["name"] as? String ?? ""
         bio = dict["bio"] as? String ?? ""
         if let restaurantType = dict["type"] as? String {
-            switch restaurantType {
-            case "hawk":
-                type = .hawk
-                break
-            case "coffee":
-                type = .coffee
-                break
-            case "fastfood":
-                type = .fastfood
-                break
-            case "streettea":
-                type = .streettea
-                break
-            default:
-                type = .na
-            }
+            type = RestaurantType(rawValue: restaurantType) ?? .na
         } else { type = .na }
         rate = dict["rate"] as? Double ?? 0
     }

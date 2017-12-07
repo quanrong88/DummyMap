@@ -39,16 +39,6 @@ class MapVC: UIViewController {
         mapView.setRegion(coordinateRegion, animated: true)
     }
     func fetchAnnotation() {
-//        let request = NSFetchRequest<Restaurant>(entityName: "Restaurant")
-//        do {
-//            let results = try managedContext.fetch(request)
-//            for item in results {
-//                let annotation = MapAnnotation(restaurant: item)
-//                annotationList.append(annotation)
-//            }
-//        } catch let error as NSError {
-//            print("Could not fetch \(error), \(error.userInfo)")
-//        }
         PersistenceManager.sharedInstance.fetchRestaurantList(completion: { [unowned self] (restaurants) in
             for restaurant in restaurants {
                 let annotation = MapAnnotation(restaurant: restaurant)
