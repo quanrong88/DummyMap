@@ -59,4 +59,14 @@ class PersistenceManager: NSObject {
             completion(result)
         })
     }
+    func clearAllData() {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Restaurant")
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        do {
+            try coreDataStack.managedContext.execute(batchDeleteRequest)
+            
+        } catch {
+            // Error Handling
+        }
+    }
 }

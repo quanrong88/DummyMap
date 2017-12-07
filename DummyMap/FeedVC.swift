@@ -51,6 +51,15 @@ class FeedVC: UIViewController {
         }
     }
     
+    @IBAction func refreshBtnClicked(_ sender: UIBarButtonItem) {
+        HUD.show(.progress)
+        PersistenceManager.sharedInstance.clearAllData()
+        ApiClient.sharedInstance.getRestaurantList(completion: { [unowned self] (restaurant) in
+            self.feedData = restaurant
+            self.feedCollectionView.reloadData()
+            HUD.hide()
+        })
+    }
     
 
 }

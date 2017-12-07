@@ -82,7 +82,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="m1d-vr-mco"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Feeds" id="upo-T4-DuE"/>
+                    <navigationItem key="navigationItem" title="Feeds" id="upo-T4-DuE">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="JgY-aO-uOE">
+                            <connections>
+                                <action selector="refreshBtnClicked:" destination="AG4-fh-CZl" id="Br3-lg-2K9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="feedCollectionView" destination="Irr-J1-97X" id="EM9-Bb-qan"/>
                         <segue destination="UsL-Pp-wso" kind="push" identifier="showDetail" id="osH-bE-rYI"/>
