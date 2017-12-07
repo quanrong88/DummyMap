@@ -21,8 +21,8 @@ class PersistenceManager: NSObject {
                 self.insertNewShopEntity(dict: dict, context: context)
             }
             try! context.save()
+            self.coreDataStack.saveContext()
             DispatchQueue.main.async {
-                self.coreDataStack.saveContext()
                 self.fetchRestaurantList(completion: completion)
             }
             
