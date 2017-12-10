@@ -39,12 +39,10 @@ class MapVC: UIViewController {
         mapView.setRegion(coordinateRegion, animated: true)
     }
     func fetchAnnotation() {
-        PersistenceManager.fetchRestaurantList(completion: { [unowned self] (restaurants) in
-            for restaurant in restaurants {
-                let annotation = MapAnnotation(restaurant: restaurant)
-                self.annotationList.append(annotation)
-            }
-        })
+        for restaurant in DataManager.shareInstance.dataSource {
+            let annotation = MapAnnotation(restaurant: restaurant)
+            self.annotationList.append(annotation)
+        }
     }
 
 }

@@ -16,14 +16,17 @@ class FeedVC: UIViewController {
 
     @IBOutlet weak var feedCollectionView: UICollectionView!
     
-    var feedData: [RestaurantDataModel] = []
-    let previouslyLaunched = UserDefaults.standard.bool(forKey: "previouslyLaunched")
+    var feedData: [FeedViewModel] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         feedCollectionView.register(DemoCell.nib, forCellWithReuseIdentifier: DemoCell.identifier)
         DataManager.shareInstance.loadData(completion: { [unowned self] (restaurantModel) in
-            self.feedData = restaurantModel
+            for model in restaurantModel {
+                let viewModel = FeedViewModel(dataModel: model)
+                self.feedData.append(viewModel)
+            }
             self.feedCollectionView.reloadData()
         })
         
@@ -40,14 +43,18 @@ class FeedVC: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail", let desVC = segue.destination as? RestaurantDetailVC, let content = sender as? RestaurantDataModel {
-            desVC.restaurant = content
+            desVC.restaurant = DetailViewModel(dataModel: content)
         }
     }
     
     @IBAction func refreshBtnClicked(_ sender: UIBarButtonItem) {
         HUD.show(.progress)
         DataManager.shareInstance.reloadData(completion: {(restaurantModel) in
-            self.feedData = restaurantModel
+            self.feedData.removeAll()
+            for model in restaurantModel {
+                let viewModel = FeedViewModel(dataModel: model)
+                self.feedData.append(viewModel)
+            }
             self.feedCollectionView.reloadData()
             HUD.hide()
         })
@@ -57,7 +64,7 @@ class FeedVC: UIViewController {
 }
 extension FeedVC: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let restaurant = feedData[indexPath.row]
+        let restaurant = DataManager.shareInstance.dataSource[indexPath.row]
         performSegue(withIdentifier: "showDetail", sender: restaurant)
     }
 }
@@ -71,7 +78,7 @@ extension FeedVC: UICollectionViewDataSource {
         let restaurant = feedData[indexPath.row]
         cell.titleLbl.text = restaurant.name
         cell.rateView.rating = restaurant.rate
-        cell.setTypeIcon(type: restaurant.type)
+        cell.typeIcon.image = restaurant.image
         return cell
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {

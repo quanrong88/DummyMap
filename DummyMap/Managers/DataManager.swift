@@ -14,13 +14,22 @@ class DataManager: NSObject {
     let previouslyLaunched = UserDefaults.standard.bool(forKey: "previouslyLaunched")
     func loadData(completion: @escaping ([RestaurantDataModel]) -> Void) {
         if !previouslyLaunched {
-            ApiClient.getRestaurantList(completion: completion)
+            ApiClient.getRestaurantList(completion: { [unowned self] (dataModels) in
+                self.dataSource = dataModels
+                completion(dataModels)
+            })
         } else {
-            PersistenceManager.fetchRestaurantModelList(completion: completion)
+            PersistenceManager.fetchRestaurantModelList(completion: { [unowned self] (dataModels) in
+                self.dataSource = dataModels
+                completion(dataModels)
+            })
         }
     }
     func reloadData(completion: @escaping ([RestaurantDataModel]) -> Void) {
         PersistenceManager.clearAllData()
-        ApiClient.getRestaurantList(completion: completion)
+        ApiClient.getRestaurantList(completion: { [unowned self] (dataModels) in
+            self.dataSource = dataModels
+            completion(dataModels)
+        })
     }
 }

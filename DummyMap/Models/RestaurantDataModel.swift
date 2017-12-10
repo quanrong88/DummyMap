@@ -21,6 +21,9 @@ struct RestaurantDataModel {
     var bio: String
     var type: RestaurantType
     var rate: Double
+    var latitude: Double
+    var longitude: Double
+    
     
     init(restaurant: Restaurant) {
         name = restaurant.name ?? ""
@@ -29,6 +32,8 @@ struct RestaurantDataModel {
             type = RestaurantType(rawValue: restaurantType) ?? .na
         } else { type = .na }
         rate = restaurant.rate
+        latitude = restaurant.latitude
+        longitude = restaurant.longitude
     }
     
     init(dict: [String:Any]) {
@@ -38,6 +43,8 @@ struct RestaurantDataModel {
             type = RestaurantType(rawValue: restaurantType) ?? .na
         } else { type = .na }
         rate = dict["rate"] as? Double ?? 0
+        latitude = dict["latitude"] as? Double ?? 0
+        longitude = dict["longitude"] as? Double ?? 0
     }
     
 }

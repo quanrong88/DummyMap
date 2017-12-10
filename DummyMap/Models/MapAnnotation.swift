@@ -13,25 +13,25 @@ import Contacts
 class MapAnnotation: NSObject, MKAnnotation {
     let title: String?
     let subtitle: String?
-    let type: String
+    let type: RestaurantType
     let coordinate: CLLocationCoordinate2D
     
-    init(restaurant: Restaurant) {
+    init(restaurant: RestaurantDataModel) {
         title = restaurant.name
         subtitle = restaurant.bio
-        type = restaurant.type ?? ""
+        type = restaurant.type
         coordinate = CLLocationCoordinate2D(latitude: restaurant.latitude, longitude: restaurant.longitude)
         super.init()
     }
     var makerTintColor: UIColor {
         switch type {
-        case "hawk":
+        case .hawk:
             return .orange
-        case "coffee":
+        case .coffee:
             return .brown
-        case "fastfood":
+        case .fastfood:
             return .yellow
-        case "streettea":
+        case .streettea:
             return .green
         default:
             return .red
@@ -39,13 +39,13 @@ class MapAnnotation: NSObject, MKAnnotation {
     }
     var image: UIImage {
         switch type {
-        case "hawk":
+        case .hawk:
             return #imageLiteral(resourceName: "bakery")
-        case "coffee":
+        case .coffee:
             return #imageLiteral(resourceName: "coffee")
-        case "fastfood":
+        case .fastfood:
             return #imageLiteral(resourceName: "fastfood")
-        case "streettea":
+        case .streettea:
             return #imageLiteral(resourceName: "water")
         default:
             return #imageLiteral(resourceName: "food-icon")
