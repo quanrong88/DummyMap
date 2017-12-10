@@ -11,12 +11,10 @@ import CoreData
 
 class PersistenceManager: NSObject {
     
-    lazy var coreDataStack = CoreDataStack(modelName: "DummyMap")
+    static let coreDataStack = CoreDataStack(modelName: "DummyMap")
     
-    static let sharedInstance = PersistenceManager()
-    
-    func parseJsonData(input: [[String:Any]]) {
-        coreDataStack.storeContainer.performBackgroundTask { [unowned self] (context) in
+    class func parseJsonData(input: [[String:Any]]) {
+        coreDataStack.storeContainer.performBackgroundTask { (context) in
             for dict in input {
                 self.insertNewShopEntity(dict: dict, context: context)
             }
@@ -28,7 +26,7 @@ class PersistenceManager: NSObject {
             
         }
     }
-    func insertNewShopEntity(dict: [String:Any], context: NSManagedObjectContext) {
+    class func insertNewShopEntity(dict: [String:Any], context: NSManagedObjectContext) {
         guard let entity = NSEntityDescription.entity(forEntityName: "Restaurant",
                                                       in: context) else { return }
         let restaurant = Restaurant(entity: entity, insertInto: coreDataStack.managedContext)
@@ -40,7 +38,7 @@ class PersistenceManager: NSObject {
         restaurant.latitude = dict["latitude"] as? Double ?? 0
         restaurant.longitude = dict["longitude"] as? Double ?? 0
     }
-    func fetchRestaurantList(completion: @escaping ([Restaurant]) -> Void) {
+    class func fetchRestaurantList(completion: @escaping ([Restaurant]) -> Void) {
         let request = NSFetchRequest<Restaurant>(entityName: "Restaurant")
         do {
             let results = try coreDataStack.managedContext.fetch(request)
@@ -49,7 +47,7 @@ class PersistenceManager: NSObject {
             print("Could not fetch \(error), \(error.userInfo)")
         }
     }
-    func fetchRestaurantModelList(completion: @escaping ([RestaurantViewModel]) -> Void) {
+    class func fetchRestaurantModelList(completion: @escaping ([RestaurantViewModel]) -> Void) {
         fetchRestaurantList(completion: { (restaurants ) in
             var result: [RestaurantViewModel] = []
             for item in restaurants {
@@ -59,7 +57,7 @@ class PersistenceManager: NSObject {
             completion(result)
         })
     }
-    func clearAllData() {
+    class func clearAllData() {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Restaurant")
         let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         do {

@@ -12,8 +12,8 @@ import Alamofire
 let mainURL = "https://my-json-server.typicode.com/quanrong88/Demo-repo/shops"
 
 class ApiClient: NSObject {
-    static let sharedInstance = ApiClient()
-    func getRestaurantList(completion: @escaping ([RestaurantViewModel]) -> Void) {
+    
+    class func getRestaurantList(completion: @escaping ([RestaurantViewModel]) -> Void) {
         Alamofire.request(mainURL).responseJSON { response in
             switch response.result {
             case .success:
@@ -25,7 +25,7 @@ class ApiClient: NSObject {
                         result.append(model)
                     }
                     completion(result)
-                    PersistenceManager.sharedInstance.parseJsonData(input: json)
+                    PersistenceManager.parseJsonData(input: json)
                     UserDefaults.standard.set(true, forKey: "previouslyLaunched")
                 }
                 

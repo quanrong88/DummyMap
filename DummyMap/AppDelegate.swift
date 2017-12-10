@@ -20,11 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        PersistenceManager.sharedInstance.coreDataStack.saveContext()
+        PersistenceManager.coreDataStack.saveContext()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        PersistenceManager.sharedInstance.coreDataStack.saveContext()
+        PersistenceManager.coreDataStack.saveContext()
     }
 
 }
