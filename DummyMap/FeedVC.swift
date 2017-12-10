@@ -16,23 +16,16 @@ class FeedVC: UIViewController {
 
     @IBOutlet weak var feedCollectionView: UICollectionView!
     
-    var feedData: [RestaurantViewModel] = []
+    var feedData: [RestaurantDataModel] = []
     let previouslyLaunched = UserDefaults.standard.bool(forKey: "previouslyLaunched")
     override func viewDidLoad() {
         super.viewDidLoad()
         
         feedCollectionView.register(DemoCell.nib, forCellWithReuseIdentifier: DemoCell.identifier)
-        if !previouslyLaunched {
-            ApiClient.getRestaurantList(completion: { [unowned self] (restaurant) in
-                self.feedData = restaurant
-                self.feedCollectionView.reloadData()
-            })
-        } else {
-            PersistenceManager.fetchRestaurantModelList(completion: { [unowned self] (restaurant) in
-                self.feedData = restaurant
-                self.feedCollectionView.reloadData()
-            })
-        }
+        DataManager.shareInstance.loadData(completion: { [unowned self] (restaurantModel) in
+            self.feedData = restaurantModel
+            self.feedCollectionView.reloadData()
+        })
         
     }
 
@@ -46,16 +39,15 @@ class FeedVC: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showDetail", let desVC = segue.destination as? RestaurantDetailVC, let content = sender as? RestaurantViewModel {
+        if segue.identifier == "showDetail", let desVC = segue.destination as? RestaurantDetailVC, let content = sender as? RestaurantDataModel {
             desVC.restaurant = content
         }
     }
     
     @IBAction func refreshBtnClicked(_ sender: UIBarButtonItem) {
         HUD.show(.progress)
-        PersistenceManager.clearAllData()
-        ApiClient.getRestaurantList(completion: { [unowned self] (restaurant) in
-            self.feedData = restaurant
+        DataManager.shareInstance.reloadData(completion: {(restaurantModel) in
+            self.feedData = restaurantModel
             self.feedCollectionView.reloadData()
             HUD.hide()
         })

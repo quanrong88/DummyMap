@@ -16,7 +16,7 @@ enum RestaurantType: String {
     case na = "N/a"
 }
 
-struct RestaurantViewModel {
+struct RestaurantDataModel {
     var name: String
     var bio: String
     var type: RestaurantType

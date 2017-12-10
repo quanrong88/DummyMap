@@ -47,11 +47,11 @@ class PersistenceManager: NSObject {
             print("Could not fetch \(error), \(error.userInfo)")
         }
     }
-    class func fetchRestaurantModelList(completion: @escaping ([RestaurantViewModel]) -> Void) {
+    class func fetchRestaurantModelList(completion: @escaping ([RestaurantDataModel]) -> Void) {
         fetchRestaurantList(completion: { (restaurants ) in
-            var result: [RestaurantViewModel] = []
+            var result: [RestaurantDataModel] = []
             for item in restaurants {
-                let model = RestaurantViewModel(restaurant: item)
+                let model = RestaurantDataModel(restaurant: item)
                 result.append(model)
             }
             completion(result)

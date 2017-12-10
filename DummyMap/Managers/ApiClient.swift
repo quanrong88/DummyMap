@@ -13,15 +13,15 @@ let mainURL = "https://my-json-server.typicode.com/quanrong88/Demo-repo/shops"
 
 class ApiClient: NSObject {
     
-    class func getRestaurantList(completion: @escaping ([RestaurantViewModel]) -> Void) {
+    class func getRestaurantList(completion: @escaping ([RestaurantDataModel]) -> Void) {
         Alamofire.request(mainURL).responseJSON { response in
             switch response.result {
             case .success:
                 print("Validation Successful")
                 if let json = response.result.value as? [[String:Any]] {
-                    var result: [RestaurantViewModel] = []
+                    var result: [RestaurantDataModel] = []
                     for item in json {
-                        let model = RestaurantViewModel(dict: item)
+                        let model = RestaurantDataModel(dict: item)
                         result.append(model)
                     }
                     completion(result)

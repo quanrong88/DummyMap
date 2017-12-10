@@ -15,7 +15,7 @@ class RestaurantDetailVC: UIViewController {
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var ratingView: CosmosView!
     @IBOutlet weak var bgImg: UIImageView!
-    var restaurant: RestaurantViewModel?
+    var restaurant: RestaurantDataModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,7 @@ class RestaurantDetailVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     // MARK: Ultilities function
-    func bindingUI(input: RestaurantViewModel) {
+    func bindingUI(input: RestaurantDataModel) {
         nameLbl.text = input.name
         ratingView.rating = input.rate
         bioTextView.text = input.bio
