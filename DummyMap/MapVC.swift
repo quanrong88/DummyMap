@@ -23,12 +23,15 @@ class MapVC: UIViewController {
         centerMapOnLocation(location: initialLocation)
         mapView.register(MapMakerView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         mapView.delegate = self
+        NotificationCenter.default.addObserver(forName: dataChangedNotificationName, object: nil, queue: nil, using: { [unowned self] (_) in
+            self.deleteAllAnnotations()
+            self.fetchAnnotation()
+        })
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if annotationList.isEmpty {
             fetchAnnotation()
-            mapView.addAnnotations(annotationList)
         }
         
     }
@@ -43,6 +46,11 @@ class MapVC: UIViewController {
             let annotation = MapAnnotation(restaurant: restaurant)
             self.annotationList.append(annotation)
         }
+        mapView.addAnnotations(annotationList)
+    }
+    func deleteAllAnnotations() {
+        mapView.removeAnnotations(annotationList)
+        annotationList.removeAll()
     }
 
 }

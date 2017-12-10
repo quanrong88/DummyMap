@@ -8,6 +8,8 @@
 
 import UIKit
 
+let dataChangedNotificationName = NSNotification.Name(rawValue: "dataHasBeenReloaded")
+
 class DataManager: NSObject {
     var dataSource: [RestaurantDataModel] = []
     static let shareInstance = DataManager()
@@ -30,6 +32,7 @@ class DataManager: NSObject {
         ApiClient.getRestaurantList(completion: { [unowned self] (dataModels) in
             self.dataSource = dataModels
             completion(dataModels)
+            NotificationCenter.default.post(name: dataChangedNotificationName, object: nil)
         })
     }
 }
