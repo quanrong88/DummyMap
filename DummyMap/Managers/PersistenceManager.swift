@@ -16,12 +16,12 @@ class PersistenceManager: NSObject {
     class func parseJsonData(input: [[String:Any]]) {
         coreDataStack.storeContainer.performBackgroundTask { (context) in
             for dict in input {
-                self.insertNewShopEntity(dict: dict, context: context)
+                insertNewShopEntity(dict: dict, context: context)
             }
             try! context.save()
-            self.coreDataStack.saveContext()
+            coreDataStack.saveContext()
             DispatchQueue.main.async {
-                self.fetchRestaurantList(completion: { (_) in })
+                fetchRestaurantList(completion: { (_) in })
             }
             
         }
