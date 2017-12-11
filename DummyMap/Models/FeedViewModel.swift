@@ -9,24 +9,10 @@
 import Foundation
 import UIKit
 
-struct FeedViewModel {
+struct FeedViewModel: GetableIconImage, GetableTintColor {
     var name: String
     var type: RestaurantType
     var rate: Double
-    var image: UIImage {
-        switch type {
-        case .hawk:
-            return #imageLiteral(resourceName: "bakery")
-        case .coffee:
-            return #imageLiteral(resourceName: "coffee")
-        case .fastfood:
-            return #imageLiteral(resourceName: "fastfood")
-        case .streettea:
-            return #imageLiteral(resourceName: "water")
-        default:
-            return #imageLiteral(resourceName: "food-icon")
-        }
-    }
     
     init(dataModel: RestaurantDataModel) {
         name = dataModel.name

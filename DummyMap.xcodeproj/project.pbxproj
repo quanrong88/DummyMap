@@ -16,6 +16,8 @@
 		3D57D8A11FD793BD00141311 /* MapMakerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D57D8A01FD793BD00141311 /* MapMakerView.swift */; };
 		3D57D8A41FD7D0D000141311 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D57D8A31FD7D0D000141311 /* PersistenceManager.swift */; };
 		3D57D8A61FD7D17000141311 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D57D8A51FD7D17000141311 /* ApiClient.swift */; };
+		3DA256C31FDE201C001903F9 /* GetableIconImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA256C21FDE201C001903F9 /* GetableIconImage.swift */; };
+		3DA256C51FDE21EF001903F9 /* GetableTintColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA256C41FDE21EF001903F9 /* GetableTintColor.swift */; };
 		3DF1BC8E1FD7883B005025AC /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DF1BC8D1FD7883B005025AC /* MapVC.swift */; };
 		FC17B5A11FD2941600CBF144 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC17B5A01FD2941600CBF144 /* AppDelegate.swift */; };
 		FC17B5A61FD2941600CBF144 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC17B5A41FD2941600CBF144 /* Main.storyboard */; };
@@ -43,6 +45,8 @@
 		3D57D8A01FD793BD00141311 /* MapMakerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMakerView.swift; sourceTree = "<group>"; };
 		3D57D8A31FD7D0D000141311 /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		3D57D8A51FD7D17000141311 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		3DA256C21FDE201C001903F9 /* GetableIconImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetableIconImage.swift; sourceTree = "<group>"; };
+		3DA256C41FDE21EF001903F9 /* GetableTintColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetableTintColor.swift; sourceTree = "<group>"; };
 		3DF1BC8D1FD7883B005025AC /* MapVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		FC17B59D1FD2941600CBF144 /* DummyMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DummyMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC17B5A01FD2941600CBF144 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +111,15 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		3DA256C11FDE1C92001903F9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3DA256C21FDE201C001903F9 /* GetableIconImage.swift */,
+				3DA256C41FDE21EF001903F9 /* GetableTintColor.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		FC17B5941FD2941600CBF144 = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +140,7 @@
 		FC17B59F1FD2941600CBF144 /* DummyMap */ = {
 			isa = PBXGroup;
 			children = (
+				3DA256C11FDE1C92001903F9 /* Extensions */,
 				3D57D8A21FD7CDC300141311 /* Managers */,
 				3D57D89D1FD78FDA00141311 /* Models */,
 				3D225FA61FD5060000DE775F /* CoreDataClasses */,
@@ -264,6 +278,7 @@
 				3D57D8A11FD793BD00141311 /* MapMakerView.swift in Sources */,
 				3D57D8A41FD7D0D000141311 /* PersistenceManager.swift in Sources */,
 				3D225FA51FD505DA00DE775F /* Restaurant+CoreDataProperties.swift in Sources */,
+				3DA256C31FDE201C001903F9 /* GetableIconImage.swift in Sources */,
 				FCCB75EB1FD3B1270078DE20 /* DemoCell.swift in Sources */,
 				3D225FA81FD5069F00DE775F /* CoreDataStack.swift in Sources */,
 				FC17B5B61FD2E9E500CBF144 /* FeedVC.swift in Sources */,
@@ -273,6 +288,7 @@
 				3DF1BC8E1FD7883B005025AC /* MapVC.swift in Sources */,
 				FC17B5A11FD2941600CBF144 /* AppDelegate.swift in Sources */,
 				FC81FCAF1FDD3309002CA4D2 /* FeedViewModel.swift in Sources */,
+				3DA256C51FDE21EF001903F9 /* GetableTintColor.swift in Sources */,
 				3D49580F1FD9173A00E20201 /* RestaurantDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

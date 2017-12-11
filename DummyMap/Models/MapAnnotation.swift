@@ -10,11 +10,11 @@ import UIKit
 import MapKit
 import Contacts
 
-class MapAnnotation: NSObject, MKAnnotation {
-    let title: String?
-    let subtitle: String?
-    let type: RestaurantType
-    let coordinate: CLLocationCoordinate2D
+class MapAnnotation: NSObject, MKAnnotation, GetableIconImage, GetableTintColor {
+    var title: String?
+    var subtitle: String?
+    var type: RestaurantType
+    var coordinate: CLLocationCoordinate2D
     
     init(restaurant: RestaurantDataModel) {
         title = restaurant.name
@@ -35,20 +35,6 @@ class MapAnnotation: NSObject, MKAnnotation {
             return .green
         default:
             return .red
-        }
-    }
-    var image: UIImage {
-        switch type {
-        case .hawk:
-            return #imageLiteral(resourceName: "bakery")
-        case .coffee:
-            return #imageLiteral(resourceName: "coffee")
-        case .fastfood:
-            return #imageLiteral(resourceName: "fastfood")
-        case .streettea:
-            return #imageLiteral(resourceName: "water")
-        default:
-            return #imageLiteral(resourceName: "food-icon")
         }
     }
     // Annotation right callout accessory opens this mapItem in Maps app

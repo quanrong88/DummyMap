@@ -79,6 +79,7 @@ extension FeedVC: UICollectionViewDataSource {
         cell.titleLbl.text = restaurant.name
         cell.rateView.rating = restaurant.rate
         cell.typeIcon.image = restaurant.image
+        cell.typeIcon.backgroundColor = restaurant.makerTintColor
         return cell
     }
     func numberOfSections(in collectionView: UICollectionView) -> Int {
