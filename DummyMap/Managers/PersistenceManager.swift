@@ -20,10 +20,6 @@ class PersistenceManager: NSObject {
             }
             try! context.save()
             coreDataStack.saveContext()
-            DispatchQueue.main.async {
-                fetchRestaurantList(completion: { (_) in })
-            }
-            
         }
     }
     class func insertNewShopEntity(dict: [String:Any], context: NSManagedObjectContext) {
