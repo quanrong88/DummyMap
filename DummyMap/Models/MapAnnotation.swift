@@ -23,20 +23,6 @@ class MapAnnotation: NSObject, MKAnnotation, GetableIconImage, GetableTintColor 
         coordinate = CLLocationCoordinate2D(latitude: restaurant.latitude, longitude: restaurant.longitude)
         super.init()
     }
-    var makerTintColor: UIColor {
-        switch type {
-        case .hawk:
-            return .orange
-        case .coffee:
-            return .brown
-        case .fastfood:
-            return .yellow
-        case .streettea:
-            return .green
-        default:
-            return .red
-        }
-    }
     // Annotation right callout accessory opens this mapItem in Maps app
     func mapItem() -> MKMapItem {
         let addressDict = [CNPostalAddressStreetKey: subtitle!]
