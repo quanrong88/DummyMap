@@ -1,6 +1,9 @@
 # Dummy Map
 
-It is as simple location based application on IOS.
+It is as simple location based application on IOS. More detail 3 following tutorial:
+* [Part1](https://quanrong88.github.io/2017/12/19/My-simple-location-based-application/)
+* [Part2](https://quanrong88.github.io/2017/12/27/Refactoring-code-with-MVVM-in-Swift-3/)
+* [Part3](https://quanrong88.github.io/2018/01/03/Refactoring-code-with-Protocol-orient-programming-in-Swift-3/)
 
 ### Installing
 
