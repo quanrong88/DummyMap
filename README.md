@@ -1,4 +1,4 @@
-Dummy Map
+#Dummy Map
 
 It is as simple location based application on IOS.
 
